@@ -2,7 +2,12 @@
 
 TOTP 2 Factor Authentication for KaiOS 1.0
 
-![alt text](SettingsScreenshot.jpg "Settings page")
+<table>
+  <tr>
+    <td><img src="screenshots/Settings Screenshot.jpg"></td>
+    <td><img src=""></td>
+  </tr>
+</table>
 
 Keymaster is a TOTP client for older versions of KaiOS. It can replace Google Authenticator, Microsoft Authenticator, and many others. It works 100% offline!
 
