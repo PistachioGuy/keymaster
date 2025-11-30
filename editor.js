@@ -33,12 +33,12 @@ function save() {
 			secrets[document.getElementById("service"+i).value] = {"secret":(document.getElementById("secret"+i).value)} 
 		}
 		localStorage.setItem("secrets", JSON.stringify(secrets));
-		window.location.href = "index.html";
+		window.location.href = "index.html?reload=" + Date.now();
 	}
 }
 function exitwithoutsaving() {
 	if (confirm("Exit without saving?")===true) {
-		window.location.href = "index.html";
+		window.location.href = "index.html?reload=" + Date.now();
 	}
 }
 function newentry() {
