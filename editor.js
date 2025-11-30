@@ -15,7 +15,6 @@ function displaysecrets() {
 		codedisplays.textContent="";
 		for (var i = 0; i < len; i++) {
 			service=Object.keys(secrets)[i];
-			console.log(service);
 			codedisplays.innerHTML+=("<p><input type=text id='service"+String(i)+"'value='"+service+"'><button id='delete"+String(i)+"' onclick='delentry(\""+String(i)+"\");'>Delete</button></p>");
 			codedisplays.innerHTML+=("<p>Secret:<input type=text onclick='newentry();' id='secret"+String(i)+"'value='"+secrets[service]["secret"]+"'></p>");
 		}
@@ -27,18 +26,19 @@ document.getElementById("service0").focus();
 var selectedType = "service";
 var selectedServiceId=0;
 function save() {
-	console.log(secrets);
 	len = Object.keys(secrets).length;
 	secrets = {};
 	for (var i = 0; i<len; i++) {
 		secrets[document.getElementById("service"+i).value] = {"secret":(document.getElementById("secret"+i).value)} 
-		console.log(document.getElementById("service"+i).value)
 	}
-	console.log(secrets);
 	localStorage.setItem("secrets", JSON.stringify(secrets));
 	window.location.href = "index.html";
 }
-
+function exitwithoutsaving() {
+	if (confirm("Exit without saving?")===true) {
+		window.location.href = "index.html";
+	}
+}
 function newentry() {
 	len = Object.keys(secrets).length;
 	secrets = {};
@@ -65,32 +65,25 @@ function moveup() {
 	if (selectedType==="secret") {
 		el=document.getElementById("delete"+selectedServiceId)
 		if (el) {
-			console.log(el);
 			el.focus();
 			selectedType="delete";
-			console.log("delete"+selectedServiceId);
 		}
 	}else if (selectedType==="delete") {
 		el=document.getElementById("service"+selectedServiceId)
 		if (el) {
-			console.log(el);
 			el.focus();
 			selectedType="service";
-			console.log("service"+selectedServiceId);
 		}
 	} else {
 		if (selectedServiceId === 0) {
 			selectedType = "savebtn";
-			console.log(document.getElementById("savebtn"));
 			document.getElementById("savebtn").focus();
 		} else{
 			el = document.getElementById("secret"+(selectedServiceId-1))
 			if (el) {
-				console.log(el);
 				el.focus();
 				selectedServiceId--;
 				selectedType="secret";
-				console.log("secret"+selectedServiceId);
 			}
 		}
 	}
@@ -108,14 +101,12 @@ function movedown() {
 			el=document.getElementById("delete"+selectedServiceId)
 			if (el) {
 				el.focus();
-				console.log("delete"+selectedServiceId);
 				selectedType="delete";
 			}
 		} else if (selectedType==="delete") {
 			el = document.getElementById("secret"+selectedServiceId)
 			if (el) {
 				el.focus();
-				console.log("secret"+selectedServiceId);
 				selectedType="secret";
 			}
 		}
@@ -124,7 +115,6 @@ function movedown() {
 			if (el) {
 				el.focus();
 				selectedServiceId++;
-				console.log("service"+selectedServiceId);
 				selectedType="service";
 			}
 		}
@@ -141,6 +131,9 @@ document.addEventListener("keydown", evt => {
     }
 	if (evt.key === "ArrowDown") {
         movedown();
+    }
+	if (evt.key === "Backspace") {
+        exitwithoutsaving();
     }
 	
 });

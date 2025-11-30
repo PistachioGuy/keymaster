@@ -3,6 +3,7 @@
 // Note: .generateSecret() is only available for authenticator and not totp/hotp
 var totp = new jsOTP.totp();
 var secrets =JSON.parse(localStorage.getItem("secrets"));
+if (secrets === null) {secrets={}}
 var len = Object.keys(secrets).length;
 var errorout = null;
 function displaysecrets() {
