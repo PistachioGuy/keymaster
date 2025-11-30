@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "name": "keymaster1",
+  "description": "TOTP client for KaiOS 1.0",
+  "type": "web",
+  "launch_path": "/index.html",
+  "icons": {
+    "112": "/img/112.png"
+  },
+  "developer": {
+    "name": "Kiran Blanchard",
+    "url": "bananahackers.net"
+  },
+  "locales": {
+    "en-US": {
+      "name": "keymaster",
+      "subtitle": "TOTP",
+      "description": "TOTP client for KaiOS 1.0"
+    }
+  },
+  "default_locale": "en-US"
+}

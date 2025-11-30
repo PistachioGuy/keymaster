@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="lib/jsOTP-es5.js"></script>
+	<style>
+	input, button {
+		font-size: 14px;
+		padding: 2px;
+	}
+
+	input:focus, button:focus {
+		outline: 3px solid #00f;
+		background-color: #eef;
+	}
+	input {
+		width: 120px;
+	}	
+</style>
+	</style>
+</head>
+<body>
+	<div id="root" tabindex=0>
+		<center>
+			<p><button id="savebtn" onclick="save()">Save & exit</button></p>
+			<div id="codedisplays">
+			</div>
+		</center>
+	</div>
+	<script src="editor.js"></script>
+</body>
+</html>
