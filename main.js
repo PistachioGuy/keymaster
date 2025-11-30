@@ -26,8 +26,6 @@ var endtime=60;
 function generateAllCodes() {
 	for (var i = 0; i < len; i++) {
 		service=Object.keys(secrets)[i];
-		console.log(service);
-		console.log(secrets[service].secret);
 		try{
 			timeCode = totp.getOtp(secrets[service].secret);
 			document.getElementById("secret"+i).textContent = timeCode;
@@ -45,11 +43,9 @@ function loop() {
 	if (endtime === 60 && seconds < 30 && seconds > 0) {
 		endtime = 30;
 		generateAllCodes();
-		console.log("generated");
 	} else if (endtime === 30 && seconds < 60 && seconds > 30) {
 		endtime = 60;
 		generateAllCodes();
-		console.log("generated");
 	} 
 	timeleft.textContent="Time left: "+(endtime-seconds)
 	setTimeout(loop, 1000);
