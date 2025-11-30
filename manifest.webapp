@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "name": "keymaster1",
+  "name": "keymaster",
   "description": "TOTP client for KaiOS 1.0",
   "type": "web",
   "launch_path": "/index.html",
