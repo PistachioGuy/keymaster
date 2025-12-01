@@ -9,7 +9,7 @@ TOTP 2 Factor Authentication for KaiOS 1.0
   </tr>
 </table>
 
-Keymaster is an Authenticator app for older versions of KaiOS. It can replace Google Authenticator, Microsoft Authenticator, and many others. It works 100% offline!
+Keymaster is an Authenticator app for older versions of KaiOS. It can replace Google Authenticator and many others, as long as your provider supports TOTP. It works 100% offline!
 
 If you are using a more recent version of KaiOS, KaiAuth might work better on your device.
 
